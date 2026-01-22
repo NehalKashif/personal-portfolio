@@ -17,7 +17,7 @@ const About: React.FC = () => {
           <p className="text-xl text-gray-300">Get to know me better</p>
         </div>
         <div className="flex flex-col md:flex-row items-center gap-12">
-          <div className="shrink-0">
+          <div className="shrink-0 -mt-8">
                <Image
                  src="/aboutImg2.png"
               alt="Nehal Kashif"
