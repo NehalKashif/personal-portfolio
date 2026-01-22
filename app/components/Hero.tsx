@@ -4,8 +4,11 @@ import React from 'react';
 
 const Hero: React.FC = () => {
   return (
-    <main className="flex flex-col items-center justify-center min-h-screen px-4 py-16 pt-24" style={{perspective: '1000px', transformStyle: 'preserve-3d'}}>
-      <div className="text-center max-w-4xl mx-auto transform rotateX-6 rotateY-6 hover:rotateX-0 hover:rotateY-0 transition-transform duration-700 ease-out">
+    <main className="flex flex-col items-center justify-center min-h-screen px-4 py-16 pt-24 relative overflow-hidden" style={{perspective: '1000px', transformStyle: 'preserve-3d'}}>
+      <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+        <span className="text-9xl md:text-[20rem] font-black text-gray-800 opacity-10 animate-fade-in">N</span>
+      </div>
+      <div className="text-center max-w-4xl mx-auto transform rotateX-6 rotateY-6 hover:rotateX-0 hover:rotateY-0 transition-transform duration-700 ease-out relative z-10">
         <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 animate-fade-in">
           Hi, I'm{" "}
           <span className="bg-linear-to-r from-yellow-300 via-yellow-400 to-orange-600 bg-clip-text text-transparent drop-shadow-lg">
