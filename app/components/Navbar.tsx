@@ -1,24 +1,16 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Dispatch, SetStateAction } from 'react';
 import { Home as HomeIcon, User, Briefcase, Mail, Menu, X } from 'lucide-react';
 
-const Navbar: React.FC = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
+interface NavbarProps {
+  isScrolled: boolean;
+  isMenuOpen: boolean;
+  setIsMenuOpen: Dispatch<SetStateAction<boolean>>;
+  navItems: { href: string; label: string; icon: React.ComponentType<any> }[];
+}
 
-  useEffect(() => {
-    const handleScroll = () => setIsScrolled(window.scrollY > 50);
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  const navItems = [
-    { href: '#home', label: 'Home', icon: HomeIcon },
-    { href: '#about', label: 'About', icon: User },
-    { href: '#projects', label: 'Projects', icon: Briefcase },
-    { href: '#contact', label: 'Contact', icon: Mail },
-  ];
+const Navbar: React.FC<NavbarProps> = ({ isScrolled, isMenuOpen, setIsMenuOpen, navItems }) => {
 
   return (
     <nav className={`fixed top-0 w-full z-50 transition-all duration-500 ${
